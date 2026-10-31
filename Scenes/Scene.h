@@ -24,4 +24,10 @@ public:
     /// @brief Define the GUI for the scene. Gets called every frame after onDraw.
     virtual void onGUI() {};
     virtual ~Scene() = default;
+
+    // Camera state captured in onDraw, so simulateStep can use it for mouse interaction
+    glm::mat4 cameraMatrix = glm::mat4(1);
+    glm::vec3 cameraFwd = glm::vec3(1, 0, 0);
+    glm::vec3 cameraRight = glm::vec3(0, 1, 0);
+    glm::vec3 cameraUp = glm::vec3(0, 0, 1);
 };
